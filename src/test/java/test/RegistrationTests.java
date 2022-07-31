@@ -5,9 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import page.LoginPage;
-import page.RegistrationPage;
-import page.SharedMethods;
+import page.*;
 
 public class RegistrationTests extends BaseTest {
 
@@ -16,11 +14,22 @@ public class RegistrationTests extends BaseTest {
 
     LoginPage loginPage;
     // @Before metode ne smeju da se zovu isto (ona u basetest klasi i ova moraju da imaju razlicito ime)
+
+    SporetiPage sporetiPage;
+    ElektricniSporetiPage elektricniSporetiPage;
+
+    GorenjeE5121WH gorenjeE5121WH;
+
+
     @Before
     public void setUpTest() {
         registrationPage = new RegistrationPage();
         sharedMethods = new SharedMethods();
         loginPage = new LoginPage();
+        sporetiPage = new SporetiPage();
+        elektricniSporetiPage = new ElektricniSporetiPage();
+        gorenjeE5121WH = new GorenjeE5121WH();
+
     }
 
 
@@ -96,6 +105,14 @@ public class RegistrationTests extends BaseTest {
     public void sporetiKarakondzulaTest() throws InterruptedException {
         registrationPage.sviProizvodiMenuHover();
         registrationPage.BelaTehnikaMenuHover();
+        registrationPage.sporetiMenuClick();
+        sporetiPage.ElektricniSporetiClick();
+        sharedMethods.prihvatamButtonClick();
+        elektricniSporetiPage.GorenjeCheckboxSelect();
+        registrationPage.gorenjeSporetScroll();
+        elektricniSporetiPage.GorenjeSporetClick();
+        Assert.assertTrue(gorenjeE5121WH.StaraCenaIsDisplayed());
+        Assert.assertEquals("30.588", gorenjeE5121WH.NovaCenaGetText());
 
 
     }

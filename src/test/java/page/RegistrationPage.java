@@ -2,6 +2,7 @@ package page;
 
 import base.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -42,6 +43,9 @@ public class RegistrationPage extends BaseTest {
     WebElement belaTehnikaMenu;
     @FindBy(css = "a[href=\"/sporeti\"")
     WebElement sporetiMenu;
+
+    @FindBy(linkText = "Gorenje E5121WH električni šporet")
+    WebElement gorenjeSporet;
 
 
 
@@ -135,7 +139,10 @@ public class RegistrationPage extends BaseTest {
         wdWait.until(ExpectedConditions.elementToBeClickable(sporetiMenu)).click();
     }
 
-
+    public void gorenjeSporetScroll() {
+        wdWait.until(ExpectedConditions.visibilityOf(gorenjeSporet));
+        actions.moveToElement(gorenjeSporet).perform();
+    }
 
     }
 
