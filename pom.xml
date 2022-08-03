@@ -28,15 +28,15 @@
     </dependency>
     <!-- Ovo je biblioteka koja nam sluzi za automatsko skidanje odgovarajuce verzije pretrazivaca -->
     <dependency>
-        <groupId>io.github.bonigarcia</groupId>
-        <artifactId>webdrivermanager</artifactId>
-        <version>5.1.0</version>
-    </dependency>
-    <dependency>
-        <groupId>io.github.sukgu</groupId>
-        <artifactId>automation</artifactId>
-        <version>0.1.4</version>
-    </dependency>
-</dependencies>
+         <groupId>io.github.bonigarcia</groupId>
+         <artifactId>webdrivermanager</artifactId>
+         <version>5.1.0</version>
+     </dependency>
+     <dependency>
+         <groupId>io.github.sukgu</groupId>
+         <artifactId>automation</artifactId>
+         <version>0.1.4</version>
+     </dependency>
+ </dependencies>
 
-</project>
+ </project>

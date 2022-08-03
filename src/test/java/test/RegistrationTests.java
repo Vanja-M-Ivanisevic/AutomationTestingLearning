@@ -20,6 +20,8 @@ public class RegistrationTests extends BaseTest {
 
     GorenjeE5121WH gorenjeE5121WH;
 
+    BekoFSS66000Welektričnišporet bekoFSS66000Welektričnišporet;
+
 
     @Before
     public void setUpTest() {
@@ -29,6 +31,7 @@ public class RegistrationTests extends BaseTest {
         sporetiPage = new SporetiPage();
         elektricniSporetiPage = new ElektricniSporetiPage();
         gorenjeE5121WH = new GorenjeE5121WH();
+        bekoFSS66000Welektričnišporet = new BekoFSS66000Welektričnišporet();
 
     }
 
@@ -102,7 +105,7 @@ public class RegistrationTests extends BaseTest {
 
 
     @Test
-    public void sporetiKarakondzulaTest() throws InterruptedException {
+    public void sporetiKarakondzulaTest() {
         registrationPage.sviProizvodiMenuHover();
         registrationPage.BelaTehnikaMenuHover();
         registrationPage.sporetiMenuClick();
@@ -111,9 +114,21 @@ public class RegistrationTests extends BaseTest {
         elektricniSporetiPage.GorenjeCheckboxSelect();
         registrationPage.gorenjeSporetScroll();
         elektricniSporetiPage.GorenjeSporetClick();
-        Assert.assertTrue(gorenjeE5121WH.StaraCenaIsDisplayed());
-        Assert.assertEquals("30.588", gorenjeE5121WH.NovaCenaGetText());
-
+        Assert.assertTrue(gorenjeE5121WH.staraCenaIsDisplayed());
+        Assert.assertEquals("30.588 RSD", gorenjeE5121WH.staraCenaGetText());
+        Assert.assertTrue(gorenjeE5121WH.staraCenaIsDisplayed());
+        Assert.assertEquals("25.999", gorenjeE5121WH.novaCenaGetText());
+        driver.navigate().back();
+        elektricniSporetiPage.GorenjeCheckboxSelect();
+        elektricniSporetiPage.bekoCheckboxClick();
+        elektricniSporetiPage.bekoElektricniSporetClick();
+        Assert.assertTrue(bekoFSS66000Welektričnišporet.belaBojaProveraIsDisplayed());
+        Assert.assertEquals("Bela", bekoFSS66000Welektričnišporet.belaBojaProveraGetText());
+        bekoFSS66000Welektričnišporet.bekoOceneClick();
+        Assert.assertTrue(bekoFSS66000Welektričnišporet.belaBojaProveraIsDisplayed());
+        Assert.assertEquals("Kupili smo ovaj sporet za letnju kuhinju i jedini kriterijum je bio da bude sto jeftiniji. " +
+                "Videli smo ovaj model i posle razgovora sa prodavcem, shvatili smo da nema sta dalje da gledamo. Bekov sporet najobicniji, sa minimalno elektronike za 23 hiljade je smesno. " +
+                "Mi smo prezadovoljni jer smo prosli jeftinije nego sto smo mislili, a sporet za sada radi perfektno.", bekoFSS66000Welektričnišporet.komentarLjubaGetText());
 
     }
 

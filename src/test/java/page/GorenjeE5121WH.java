@@ -11,29 +11,29 @@ public class GorenjeE5121WH extends BaseTest {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//span[text()='30.588']")
-    WebElement StaraCena;
+    @FindBy(xpath = "//span[text()='30.588 ']")
+    WebElement staraCena;
     @FindBy(xpath = "//span[text()='25.999']")
-    WebElement NovaCena;
+    WebElement novaCena;
 
-    public boolean StaraCenaIsDisplayed() {
-        wdWait.until(ExpectedConditions.visibilityOf(StaraCena));
-        return StaraCena.isDisplayed();
+    public boolean staraCenaIsDisplayed() {
+        wdWait.until(ExpectedConditions.visibilityOf(staraCena));
+        return staraCena.isDisplayed();
     }
 
-    public String StaraCenaGetText() {
-        wdWait.until(ExpectedConditions.visibilityOf(StaraCena));
-        return StaraCena.getText();
+    public String staraCenaGetText() {
+        wdWait.until(ExpectedConditions.visibilityOf(staraCena));
+        return staraCena.getText();
 
     }
 
-    public boolean NovaCenaIsDisplayed() {
-        wdWait.until(ExpectedConditions.visibilityOf(NovaCena));
-        return NovaCena.isDisplayed();
+    public boolean novaCenaIsDisplayed() {
+        wdWait.until(ExpectedConditions.visibilityOf(novaCena));
+        return novaCena.isDisplayed();
     }
 
-    public String NovaCenaGetText() {
-        wdWait.until(ExpectedConditions.visibilityOf(NovaCena));
-        return NovaCena.getText();
+    public String novaCenaGetText() {
+        wdWait.until(ExpectedConditions.visibilityOf(novaCena));
+        return novaCena.getText();
     }
 }
